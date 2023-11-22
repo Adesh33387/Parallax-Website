@@ -1,0 +1,99 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+#wrapper {
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  perspective: 10px;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+  /* it tells which img h1 should come first */
+  z-index: -1;
+  height: 100%;
+}
+/* to say which image should be close to eye */
+.background {
+  transform: translateZ(-40px) scale(5);
+}
+.foreground {
+  transform: translateZ(-20px) scale(3);
+}
+/* using aboslute we overlap a image 
+ it uses nearest ancestor(immediate parent) position tag properties thats why it uses  container tag properties
+ so we purposely set postion:relative for container */
+.background,
+.foreground {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  /* how an img or vid should be resized to fit its container */
+  object-fit: cover;
+}
+h1 {
+  position: absolute;
+  top: 5rem;
+  font-size: 10rem;
+  letter-spacing: 4px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 3.3);
+}
+
+section {
+  background-color: rgb(45, 45, 45);
+  color: white;
+  /* padding: 1rem; */
+}
+
+.bg1 {
+  background-image: url(images/sport-1.jpg);
+}
+.bg2 {
+  background-image: url(images/sport-2.jpg);
+}
+.bg3 {
+  background-image: url(images/sport-3.jpg);
+}
+
+.secheading {
+  font-size: 5rem;
+  padding: 0 10rem;
+}
+
+.text {
+  font-size: 1.5rem;
+  padding: 0 10rem;
+  margin: 5rem 0;
+}
+
+.bg {
+  position: relative;
+  width: 100%;
+  /* when we want to keep the image fixed and let the other content scroll on it */
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+}
+
+.desc {
+  position: absolute;
+  background-color: white;
+  padding: 0.5rem 2.5rem;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateX(-50%);
+  color: black;
+  font-size: 3.5rem;
+  font-weight: 600;
+}
